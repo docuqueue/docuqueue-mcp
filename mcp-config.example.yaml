@@ -1,0 +1,17 @@
+# DocuQueue MCP Configuration
+# Get your API key from https://docuqueue.com/dashboard
+
+docuqueue_api_key: "your-api-key-here"
+docuqueue_api_url: "https://docuqueue.com/api/v1"
+
+# Defaults
+default_tone: "formal"
+default_style: "professional"
+
+# Branding (auto-populated by extract_branding tool)
+# brand:
+#   website: "acme.com"
+#   company_name: "Acme Corp"
+#   primary_color: "#1E40AF"
+#   font: "Inter"
+#   logo_url: "https://..."

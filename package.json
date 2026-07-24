@@ -1,0 +1,42 @@
+{
+  "name": "docuqueue-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for creating professional PDF documents",
+  "main": "dist/index.js",
+  "bin": {
+    "docuqueue-mcp": "./dist/index.js",
+    "docuqueue-mcp-server": "./dist/remote.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "dev:remote": "tsx watch src/remote.ts",
+    "start": "node dist/index.js",
+    "start:remote": "node dist/remote.js",
+    "prepublishOnly": "npm run build",
+    "test": "vitest"
+  },
+  "keywords": [
+    "mcp",
+    "pdf",
+    "invoice",
+    "document",
+    "docuqueue"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.6.0"
+  }
+}
