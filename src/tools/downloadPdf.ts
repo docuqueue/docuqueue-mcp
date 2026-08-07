@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { apiClient } from '../api/client';
+import { configManager } from '../config';
 import { getErrorMessage } from '../errors/messages';
 
 export const downloadPdfSchema = z.object({
@@ -8,8 +8,42 @@ export const downloadPdfSchema = z.object({
 
 export async function downloadPdf(args: { job_id: string }) {
   try {
-    const result = await apiClient.downloadPdf(args.job_id);
-
+    const url = `${configManager.getApiUrl()}/download/${args.job_id}`;
+    const apiKey = configManager.getApiKey();
+    
+    const response = await fetch(url, {
+      headers: { 'api-key': apiKey }
+    });
+    
+    if (!response.ok) {
+      throw new Error(`Download failed: ${response.status}`);
+    }
+    
+    const contentType = response.headers.get('content-type');
+    
+    if (contentType?.includes('application/pdf')) {
+      // PDF returned directly - provide download URL
+      return {
+        content: [
+          {
+            type: 'text' as const,
+            text: JSON.stringify(
+              {
+                job_id: args.job_id,
+                download_url: url,
+                content_type: 'application/pdf',
+                message: 'PDF ready for download. Use the download_url to get the file.',
+              },
+              null,
+              2
+            ),
+          },
+        ],
+      };
+    }
+    
+    // JSON response (error or other)
+    const result = await response.json();
     return {
       content: [
         {
@@ -17,7 +51,7 @@ export async function downloadPdf(args: { job_id: string }) {
           text: JSON.stringify(
             {
               job_id: args.job_id,
-              download_url: result.download_url,
+              download_url: result.download_url || url,
               message: 'PDF ready for download.',
             },
             null,

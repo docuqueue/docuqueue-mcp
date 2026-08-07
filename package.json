@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "bin": {
     "docuqueue-mcp": "./dist/index.js",
-    "docuqueue-mcp-server": "./dist/remote.js"
+    "docuqueue-mcp-server": "./dist/remote.js",
+    "docuqueue-mcp-install": "./dist/install.js"
   },
   "files": [
     "dist",
@@ -38,5 +39,6 @@
     "tsx": "^4.7.0",
     "typescript": "^5.4.0",
     "vitest": "^1.6.0"
-  }
+  },
+  "mcpName": "io.github/docuqueue/docuqueue-mcp"
 }
