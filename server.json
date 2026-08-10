@@ -3,7 +3,7 @@
   "name": "io.github.dvcoolarun/docuqueue-mcp",
   "title": "DocuQueue MCP",
   "description": "Generate PDFs from templates via AI chat. Works with Claude, ChatGPT, Cursor, and any MCP client.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://docuqueue.com/mcp",
   "repository": {
     "url": "https://github.com/docuqueue/docuqueue-mcp",
@@ -14,15 +14,15 @@
   "icons": [
     {
       "src": "https://docuqueue.com/favicon-32x32.png",
-      "sizes": "32x32"
+      "sizes": ["32x32"]
     },
     {
       "src": "https://docuqueue.com/apple-touch-icon.png",
-      "sizes": "180x180"
+      "sizes": ["180x180"]
     },
     {
       "src": "https://docuqueue.com/android-chrome-512x512.png",
-      "sizes": "512x512"
+      "sizes": ["512x512"]
     }
   ],
   "remotes": [
