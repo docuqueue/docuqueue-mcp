@@ -10,6 +10,21 @@
     "source": "github"
   },
   "license": "MIT",
+  "keywords": ["pdf", "document", "invoice", "contract", "template", "form-filling", "document-generation", "certificate", "report"],
+  "icons": [
+    {
+      "src": "https://docuqueue.com/favicon-32x32.png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "https://docuqueue.com/apple-touch-icon.png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "https://docuqueue.com/android-chrome-512x512.png",
+      "sizes": "512x512"
+    }
+  ],
   "remotes": [
     {
       "type": "streamable-http",
