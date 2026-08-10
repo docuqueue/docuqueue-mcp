@@ -1,0 +1,43 @@
+{
+  "manifest_version": "0.3",
+  "name": "docuqueue",
+  "display_name": "DocuQueue",
+  "version": "0.1.0",
+  "description": "Generate PDFs from templates using natural language. Create invoices, contracts, certificates, and more with AI.",
+  "long_description": "DocuQueue MCP Server connects your AI assistant to professional document generation. Browse templates, fill forms, generate PDFs, and batch-process documents — all from natural language.\n\nFeatures:\n- Generate PDFs from any DocuQueue template\n- Fill IRS forms (W-9, W-4, I-9) automatically\n- Batch-generate hundreds of documents\n- Search and browse your template library\n- Works with Claude Desktop, Claude Code, Cursor, and any MCP client",
+  "author": {
+    "name": "DocuQueue",
+    "url": "https://docuqueue.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dvcoolarun/PDF-API"
+  },
+  "homepage": "https://docuqueue.com",
+  "documentation": "https://docuqueue.com/mcp",
+  "support": "https://github.com/dvcoolarun/PDF-API/issues",
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/index.js"],
+      "env": {
+        "DOCQUEUE_API_KEY": "${user_config.api_key}"
+      }
+    }
+  },
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "API Key",
+      "description": "Your DocuQueue API key from docuqueue.com/dashboard",
+      "sensitive": true,
+      "required": true
+    }
+  },
+  "keywords": ["pdf", "document", "invoice", "contract", "template", "form-filling"],
+  "license": "MIT",
+  "privacy_policies": ["https://docuqueue.com/privacy"]
+}
