@@ -1,34 +1,19 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.docuqueue/docuqueue-mcp",
+  "name": "io.github.dvcoolarun/docuqueue-mcp",
   "title": "DocuQueue MCP",
-  "description": "Generate PDFs, fill forms, and manage documents from AI chat. Works with Claude, ChatGPT, Cursor, and any MCP-compatible client.",
+  "description": "Generate PDFs from templates via AI chat. Works with Claude, ChatGPT, Cursor, and any MCP client.",
   "version": "0.1.0",
   "homepage": "https://docuqueue.com/mcp",
-  "repository": "https://github.com/docuqueue/docuqueue-mcp",
+  "repository": {
+    "url": "https://github.com/docuqueue/docuqueue-mcp",
+    "source": "github"
+  },
   "license": "MIT",
-  "packages": [
-    {
-      "registryType": "npm",
-      "identifier": "docuqueue-mcp",
-      "version": "0.1.0",
-      "runtime": "node",
-      "runtimeHint": "npx",
-      "runtimeArguments": ["-y"],
-      "packageArguments": ["docuqueue-mcp"],
-      "environmentVariables": [
-        {
-          "name": "DOCUQUEUE_API_KEY",
-          "description": "Your DocuQueue API key",
-          "required": true
-        }
-      ]
-    }
-  ],
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://mcp.docuqueue.com/sse"
+      "url": "https://docuqueue.com/mcp/sse"
     }
   ]
 }
