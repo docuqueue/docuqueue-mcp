@@ -1,11 +1,20 @@
 # DocuQueue MCP Server
 
-MCP server for creating professional documents (invoices, contracts, certificates, proposals, reports) using the DocuQueue API.
+> Generate PDFs, fill forms, and manage documents from AI chat. Works with Claude, ChatGPT, Cursor, and any MCP-compatible client.
 
 ## Quick Start
 
+### Remote Server (Recommended)
+
+Add this URL to your AI client's MCP settings:
+
+```
+https://docuqueue.com/mcp
+```
+
+### Local Server (Alternative)
+
 ```bash
-# Run directly with npx
 npx github:docuqueue/docuqueue-mcp
 ```
 
@@ -15,40 +24,45 @@ npx github:docuqueue/docuqueue-mcp
 
 Sign up at [docuqueue.com](https://docuqueue.com) to get your API key.
 
-### 2. Configure the MCP server
+### 2. Add to your AI client
 
-Create `~/.docuqueue/mcp-config.yaml`:
-
-```yaml
-docuqueue_api_key: "your-api-key-here"
-docuqueue_api_url: "https://docuqueue.com/api/v1"
-```
-
-### 3. Add to your AI client
-
-**Claude Code:**
-```bash
-claude mcp add docuqueue -- npx github:docuqueue/docuqueue-mcp
-```
-
-**Codex (`~/.codex/config.toml`):**
-```toml
-[mcp_servers.docuqueue]
-command = "npx"
-args = ["github:docuqueue/docuqueue-mcp"]
-```
-
-**OpenCode (`~/.config/opencode/opencode.jsonc`):**
+**Claude Desktop (`claude_desktop_config.json`):**
 ```json
 {
-  "mcp": {
+  "mcpServers": {
     "docuqueue": {
-      "type": "local",
-      "command": ["npx", "github:docuqueue/docuqueue-mcp"]
+      "url": "https://docuqueue.com/mcp",
+      "headers": {
+        "api-key": "YOUR_API_KEY"
+      }
     }
   }
 }
 ```
+
+**Claude Code:**
+```bash
+claude mcp add docuqueue --transport http https://docuqueue.com/mcp
+```
+
+**Cursor (`.cursor/mcp.json`):**
+```json
+{
+  "mcpServers": {
+    "docuqueue": {
+      "url": "https://docuqueue.com/mcp",
+      "headers": {
+        "api-key": "YOUR_API_KEY"
+      }
+    }
+  }
+}
+```
+
+**ChatGPT:**
+1. Go to Settings → Connectors → Add custom connector
+2. Enter URL: `https://docuqueue.com/mcp`
+3. Add header: `api-key: YOUR_API_KEY`
 
 ## Available Tools
 
@@ -60,9 +74,7 @@ args = ["github:docuqueue/docuqueue-mcp"]
 | `preview_template` | See how your document will look |
 | `get_status` | Check if your document is ready |
 | `download_pdf` | Get your finished document |
-| `upload_docx_template` | Use your own Word document as a design |
-| `extract_branding` | Match your company's visual style |
-| `get_branding` | View your saved style settings |
+| `extract_branding` | Match your company's visual style from their website |
 
 ## Usage
 
