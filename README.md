@@ -1,68 +1,54 @@
 # DocuQueue MCP Server
 
+[![npm version](https://img.shields.io/npm/v/docuqueue-mcp.svg)](https://www.npmjs.com/package/docuqueue-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Glama](https://glama.ai/mcp/servers/docuqueue/docuqueue-mcp/badges/score.svg)](https://glama.ai/mcp/servers/docuqueue/docuqueue-mcp)
+
 > Generate PDFs, fill forms, and manage documents from AI chat. Works with Claude, ChatGPT, Cursor, and any MCP-compatible client.
 
 ## Quick Start
 
-### Remote Server (Recommended)
-
 Add this URL to your AI client's MCP settings:
 
 ```
-https://docuqueue.com/mcp
+https://docuqueue.com/mcp/sse
 ```
 
-### Local Server (Alternative)
-
-```bash
-npx github:docuqueue/docuqueue-mcp
-```
+That's it. No install, no API key required for OAuth.
 
 ## Setup
 
-### 1. Get your API key
+### Claude.ai (Recommended)
 
-Sign up at [docuqueue.com](https://docuqueue.com) to get your API key.
+1. Go to **Settings → Connectors → Add custom connector**
+2. Paste: `https://docuqueue.com/mcp/sse`
+3. Click **Authorize** in the browser popup
+4. Start generating documents
 
-### 2. Add to your AI client
+### Claude Desktop / Claude Code / Cursor
 
-**Claude Desktop (`claude_desktop_config.json`):**
+Add to your config file (`.mcp.json`, `claude_desktop_config.json`, `~/.cursor/mcp.json`):
+
 ```json
 {
   "mcpServers": {
     "docuqueue": {
-      "url": "https://docuqueue.com/mcp",
+      "url": "https://docuqueue.com/mcp/sse",
       "headers": {
-        "api-key": "YOUR_API_KEY"
+        "Authorization": "Bearer YOUR_API_KEY"
       }
     }
   }
 }
 ```
 
-**Claude Code:**
-```bash
-claude mcp add docuqueue --transport http https://docuqueue.com/mcp
-```
+Get your API key from [docuqueue.com/dashboard](https://docuqueue.com/dashboard).
 
-**Cursor (`.cursor/mcp.json`):**
-```json
-{
-  "mcpServers": {
-    "docuqueue": {
-      "url": "https://docuqueue.com/mcp",
-      "headers": {
-        "api-key": "YOUR_API_KEY"
-      }
-    }
-  }
-}
-```
+### ChatGPT
 
-**ChatGPT:**
 1. Go to Settings → Connectors → Add custom connector
-2. Enter URL: `https://docuqueue.com/mcp`
-3. Add header: `api-key: YOUR_API_KEY`
+2. Enter URL: `https://docuqueue.com/mcp/sse`
+3. Add header: `Authorization: Bearer YOUR_API_KEY`
 
 ## Available Tools
 
@@ -76,12 +62,44 @@ claude mcp add docuqueue --transport http https://docuqueue.com/mcp
 | `download_pdf` | Get your finished document |
 | `extract_branding` | Match your company's visual style from their website |
 
-## Usage
+## Usage Examples
 
-```
-You: Create an invoice for Acme Corp, 3 widgets at $50 each, 10% tax
-AI: [Lists templates] → [Previews invoice] → [Generates PDF] → [Returns download link]
-```
+Each example is a prompt you can paste directly into your AI chat:
+
+### Generate an invoice
+
+> Create an invoice for Acme Corp, 3 widgets at $50 each, 10% tax
+
+The AI will list templates, preview the invoice, generate the PDF, and return a download link.
+
+### Generate a certificate
+
+> Create a certificate for John Doe, completed the Python bootcamp on August 12, 2026
+
+### Generate a contract
+
+> Create an NDA between Acme Corp and Globex Corp, effective January 1, 2026
+
+### Fill a form
+
+> Fill in this W-9 form: name "Acme Corp", EIN "12-3456789", address "123 Main St"
+
+### Extract branding from a website
+
+> Extract the brand colors and fonts from https://stripe.com
+
+## Troubleshooting
+
+| Symptom | Fix |
+|---------|-----|
+| Authentication error | Ask the AI: "re-authenticate with DocuQueue" |
+| Connection refused | Check the server URL is `https://docuqueue.com/mcp/sse` |
+| Rate limited | Wait 1 minute, then retry |
+| Template not found | Ask the AI to list templates first |
+
+## Privacy
+
+DocuQueue MCP is a remote server — your requests go to DocuQueue's servers and return generated PDFs. Authentication tokens are sent only to DocuQueue's services during OAuth login and API calls. Documents are generated on-the-fly and not stored indefinitely.
 
 ## Development
 
@@ -95,3 +113,10 @@ npm run dev
 ## License
 
 MIT
+
+## Links
+
+- Website: [docuqueue.com](https://docuqueue.com)
+- MCP page: [docuqueue.com/mcp](https://docuqueue.com/mcp)
+- GitHub: [github.com/docuqueue/docuqueue-mcp](https://github.com/docuqueue/docuqueue-mcp)
+- Issues: [github.com/docuqueue/docuqueue-mcp/issues](https://github.com/docuqueue/docuqueue-mcp/issues)
