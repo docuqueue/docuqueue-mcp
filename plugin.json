@@ -1,0 +1,12 @@
+{
+  "name": "docuqueue",
+  "version": "1.0.0",
+  "description": "Generate PDFs, fill forms, and manage documents using DocuQueue API",
+  "author": "docuqueue",
+  "skills": ["skills/docuqueue"],
+  "mcp": {
+    "docuqueue": {
+      "url": "https://docuqueue.com/mcp/sse"
+    }
+  }
+}
