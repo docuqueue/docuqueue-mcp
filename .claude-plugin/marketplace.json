@@ -1,0 +1,15 @@
+{
+  "name": "docuqueue",
+  "owner": {
+    "name": "DocuQueue",
+    "url": "https://docuqueue.com"
+  },
+  "plugins": [
+    {
+      "name": "docuqueue",
+      "source": "./",
+      "version": "1.0.0",
+      "description": "Generate PDFs, fill forms, and manage documents using DocuQueue API"
+    }
+  ]
+}
