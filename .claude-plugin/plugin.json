@@ -1,0 +1,16 @@
+{
+  "name": "docuqueue",
+  "version": "1.0.0",
+  "description": "Generate PDFs, fill forms, and manage documents using DocuQueue API. Works with Claude, ChatGPT, Cursor, and any MCP-compatible client.",
+  "author": "docuqueue",
+  "homepage": "https://docuqueue.com/mcp",
+  "repository": "https://github.com/docuqueue/docuqueue-mcp",
+  "skills": ["skills/docuqueue"],
+  "mcp": [
+    {
+      "name": "docuqueue",
+      "type": "remote",
+      "url": "https://docuqueue.com/mcp/sse"
+    }
+  ]
+}

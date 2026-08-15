@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "docuqueue": {
+      "url": "https://docuqueue.com/mcp/sse",
+      "headers": {
+        "Authorization": "Bearer YOUR_API_KEY"
+      }
+    }
+  }
+}
