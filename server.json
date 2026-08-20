@@ -10,7 +10,7 @@
     "source": "github"
   },
   "license": "MIT",
-  "keywords": ["pdf", "document", "invoice", "contract", "template", "form-filling", "document-generation", "certificate", "report"],
+  "keywords": ["pdf", "document", "invoice", "receipt", "contract", "template", "form-filling", "document-generation", "certificate", "report", "mcp-server", "receipt-generator", "ecommerce", "billing"],
   "icons": [
     {
       "src": "https://docuqueue.com/favicon-32x32.png",

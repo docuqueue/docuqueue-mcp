@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Glama](https://glama.ai/mcp/servers/docuqueue/docuqueue-mcp/badges/score.svg)](https://glama.ai/mcp/servers/docuqueue/docuqueue-mcp)
 
-> Generate PDFs, fill forms, and manage documents from AI chat. Works with Claude, ChatGPT, Cursor, and any MCP-compatible client.
+> Generate PDFs, receipts, invoices, and manage documents from AI chat. Works with Claude, ChatGPT, Cursor, and any MCP-compatible client. MCP server for ecommerce receipts, invoices, contracts, and document generation.
 
 ## TL;DR
 
@@ -201,6 +201,10 @@ The AI will list templates, preview the invoice, generate the PDF, and return a 
 ### Extract branding from a website
 
 > Extract the brand colors and fonts from https://stripe.com
+
+### Generate a receipt
+
+> Create a receipt for customer John Smith, order #ORD-2024-0892, 3x Widget Pro at $24.99 each, subtotal $74.97, tax $5.62, total $80.59, paid with Visa ending in 4242
 
 ### Upload a custom template
 
