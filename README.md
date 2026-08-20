@@ -1,10 +1,3 @@
----
-name: docuqueue-mcp
-description: Generate PDFs, fill forms, and manage documents from AI chat using DocuQueue. Works with Claude, ChatGPT, Cursor, and any MCP-compatible client.
-homepage: https://docuqueue.com/mcp
-repository: https://github.com/docuqueue/docuqueue-mcp
----
-
 # DocuQueue MCP Server
 
 [![npm version](https://img.shields.io/npm/v/docuqueue-mcp.svg)](https://www.npmjs.com/package/docuqueue-mcp)
