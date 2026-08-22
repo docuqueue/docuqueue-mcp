@@ -1,10 +1,12 @@
-# DocuQueue MCP Server
+# DocuQueue — MCP Document Generation Server
 
 [![npm version](https://img.shields.io/npm/v/docuqueue-mcp.svg)](https://www.npmjs.com/package/docuqueue-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Glama](https://glama.ai/mcp/servers/docuqueue/docuqueue-mcp/badges/score.svg)](https://glama.ai/mcp/servers/docuqueue/docuqueue-mcp)
 
 > Generate PDFs, receipts, invoices, and manage documents from AI chat. Works with Claude, ChatGPT, Cursor, and any MCP-compatible client. MCP server for ecommerce receipts, invoices, contracts, and document generation.
+
+**MCP document generation** lets AI assistants like Claude, ChatGPT, and Cursor create PDFs, contracts, and invoices directly from chat. The Model Context Protocol (MCP) connects your AI agent to a document generation API — no custom integration code required. DocuQueue is an MCP server that exposes tools like `generate_document`, `fill_template`, and `batch_generate` for any MCP-compatible client.
 
 ## TL;DR
 
@@ -155,6 +157,18 @@ Add to `~/.cursor/mcp.json` or `~/.codeium/windsurf/mcp_config.json`:
 |------|-------------|-------------|
 | `extract_branding` | Match your company's visual style from their website | Read-only (external) |
 | `get_branding` | View your saved style settings | Read-only |
+
+## Comparison with Other MCP Document Servers
+
+| Feature | DocuQueue | DocsAutomator | Carbone | PDF Generator API |
+|---------|-----------|---------------|---------|-------------------|
+| PDF generation | ✓ | ✓ | ✓ | ✓ |
+| DOCX templates | ✓ | ✗ | ✗ | ✗ |
+| PDF form filling | ✓ | ✗ | ✗ | ✗ |
+| Batch processing | ✓ | ✓ | ✗ | ✓ |
+| Free tier | 25 credits | Limited | ✓ | Sandbox |
+| MCP server | ✓ | ✓ | ✓ | ✓ |
+| Visual template editor | ✓ | ✗ | ✗ | ✓ |
 
 ## Tool Annotations
 
