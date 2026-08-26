@@ -24,6 +24,17 @@ claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx docuqueue-mcp
 - **DOCX Support**: Upload and use Word documents as templates
 - **Tool Annotations**: Read-only and destructive operations clearly marked
 
+## Common Forms
+
+Fill and generate these popular forms directly from AI chat:
+
+| Form | Description | Link |
+|------|-------------|------|
+| W-9 | Request for Taxpayer Identification Number | [Fill Online](https://docuqueue.com/w-9-form) |
+| W-4 | Employee's Withholding Certificate | [Fill Online](https://docuqueue.com/w-4-form) |
+| I-9 | Employment Eligibility Verification | [Fill Online](https://docuqueue.com/i-9-form) |
+| 1040 | U.S. Individual Income Tax Return | [Fill Online](https://docuqueue.com/1040-form) |
+
 ## Quick Start
 
 ### Option 1: Hosted (Recommended)
