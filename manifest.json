@@ -11,11 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dvcoolarun/PDF-API"
+    "url": "https://github.com/docuqueue/docuqueue-mcp"
   },
   "homepage": "https://docuqueue.com",
   "documentation": "https://docuqueue.com/mcp",
-  "support": "https://github.com/dvcoolarun/PDF-API/issues",
+  "support": "https://github.com/docuqueue/docuqueue-mcp/issues",
   "icon": "icon.png",
   "server": {
     "type": "node",

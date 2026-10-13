@@ -1,17 +1,16 @@
 # DocuQueue — MCP Document Generation Server
 
-[![npm version](https://img.shields.io/npm/v/docuqueue-mcp.svg)](https://www.npmjs.com/package/docuqueue-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Glama](https://glama.ai/mcp/servers/docuqueue/docuqueue-mcp/badges/score.svg)](https://glama.ai/mcp/servers/docuqueue/docuqueue-mcp)
 
 > Generate PDFs, receipts, invoices, and manage documents from AI chat. Works with Claude, ChatGPT, Cursor, and any MCP-compatible client. MCP server for ecommerce receipts, invoices, contracts, and document generation.
 
-**MCP document generation** lets AI assistants like Claude, ChatGPT, and Cursor create PDFs, contracts, and invoices directly from chat. The Model Context Protocol (MCP) connects your AI agent to a document generation API — no custom integration code required. DocuQueue is an MCP server that exposes tools like `generate_document`, `fill_template`, and `batch_generate` for any MCP-compatible client.
+**MCP document generation** lets AI assistants like Claude, ChatGPT, and Cursor create PDFs, contracts, and invoices directly from chat. The Model Context Protocol (MCP) connects your AI agent to a document generation API — no custom integration code required. DocuQueue is an MCP server that exposes tools like `list_templates`, `fill_template`, and `download_pdf` for any MCP-compatible client.
 
 ## TL;DR
 
 ```bash
-claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx docuqueue-mcp
+claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx -y github:docuqueue/docuqueue-mcp
 ```
 
 ## Features
@@ -42,17 +41,17 @@ Fill and generate these popular forms directly from AI chat:
 No installation required. Add this URL to your AI client:
 
 ```
-https://docuqueue.com/mcp/sse
+https://docuqueue.com/mcp/v1
 ```
 
 ### Option 2: Local Install
 
 ```bash
 # Claude Code
-claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx docuqueue-mcp
+claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx -y github:docuqueue/docuqueue-mcp
 
 # Or install globally
-npm install -g docuqueue-mcp
+npm install -g github:docuqueue/docuqueue-mcp
 ```
 
 ## Client Integration
@@ -60,7 +59,7 @@ npm install -g docuqueue-mcp
 ### Claude.ai (Hosted)
 
 1. Go to **Settings → Connectors → Add custom connector**
-2. Paste: `https://docuqueue.com/mcp/sse`
+2. Paste: `https://docuqueue.com/mcp/v1`
 3. Click **Authorize** in the browser popup
 4. Start generating documents
 
@@ -73,7 +72,7 @@ Add to `~/.config/Claude/claude_desktop_config.json`:
   "mcpServers": {
     "docuqueue": {
       "command": "npx",
-      "args": ["docuqueue-mcp"],
+      "args": ["-y", "github:docuqueue/docuqueue-mcp"],
       "env": {
         "DOCUQUEUE_API_KEY": "your_api_key"
       }
@@ -85,7 +84,7 @@ Add to `~/.config/Claude/claude_desktop_config.json`:
 ### Claude Code
 
 ```bash
-claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx docuqueue-mcp
+claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx -y github:docuqueue/docuqueue-mcp
 ```
 
 ### Codex
@@ -95,7 +94,7 @@ Add to `~/.codex/config.toml`:
 ```toml
 [mcp_servers.docuqueue]
 command = "npx"
-args = ["docuqueue-mcp"]
+args = ["-y", "github:docuqueue/docuqueue-mcp"]
 
 [mcp_servers.docuqueue.env]
 DOCUQUEUE_API_KEY = "your_api_key"
@@ -110,7 +109,7 @@ Add to `~/.config/opencode/opencode.jsonc`:
   "mcp": {
     "docuqueue": {
       "type": "local",
-      "command": ["npx", "docuqueue-mcp"],
+      "command": ["npx", "-y", "github:docuqueue/docuqueue-mcp"],
       "env": {
         "DOCUQUEUE_API_KEY": "your_api_key"
       }
@@ -128,7 +127,7 @@ Add to `~/.cursor/mcp.json` or `~/.codeium/windsurf/mcp_config.json`:
   "mcpServers": {
     "docuqueue": {
       "command": "npx",
-      "args": ["docuqueue-mcp"],
+      "args": ["-y", "github:docuqueue/docuqueue-mcp"],
       "env": {
         "DOCUQUEUE_API_KEY": "your_api_key"
       }
@@ -140,7 +139,7 @@ Add to `~/.cursor/mcp.json` or `~/.codeium/windsurf/mcp_config.json`:
 ### ChatGPT
 
 1. Go to **Settings → Connectors → Add custom connector**
-2. Enter URL: `https://docuqueue.com/mcp/sse`
+2. Enter URL: `https://docuqueue.com/mcp/v1`
 3. Add header: `Authorization: Bearer YOUR_API_KEY`
 
 ## Available Tools
@@ -258,7 +257,7 @@ Get your API key from [docuqueue.com/dashboard](https://docuqueue.com/dashboard)
 | Symptom | Fix |
 |---------|-----|
 | Authentication error | Ask the AI: "re-authenticate with DocuQueue" |
-| Connection refused | Check the server URL is `https://docuqueue.com/mcp/sse` |
+| Connection refused | Check the server URL is `https://docuqueue.com/mcp/v1` |
 | Rate limited | Wait 1 minute, then retry |
 | Template not found | Ask the AI to list templates first |
 | Tool not appearing | Restart your MCP client after adding the server |
