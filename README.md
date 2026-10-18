@@ -332,6 +332,36 @@ src/
 └── types/            # TypeScript types
 ```
 
+## FAQ
+
+### How do I connect DocuQueue to Claude?
+
+Sign up at [docuqueue.com/register](https://docuqueue.com/register) and copy your API key from the dashboard. In Claude.ai, open **Settings → Connectors → Add custom connector**, paste the server URL `https://docuqueue.com/mcp/v1`, and click **Connect**. Choose an auth method when prompted: OAuth (recommended for Claude) or API key.
+
+### What is the DocuQueue MCP server URL?
+
+`https://docuqueue.com/mcp/v1` — paste it into any MCP client that supports a remote HTTP server (Claude.ai custom connectors, Claude Desktop, Cursor, Windsurf). No local install required.
+
+### OAuth or API key — which auth should I use?
+
+OAuth opens a browser popup and is recommended for Claude.ai. Use an API key for headless setups — Claude Code, CI scripts, or local installs (`claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx -y github:docuqueue/docuqueue-mcp`).
+
+### Do I need to install anything?
+
+No. The hosted server at `https://docuqueue.com/mcp/v1` works with just a URL and credentials. For a local install, run `npx -y github:docuqueue/docuqueue-mcp` (Node.js required).
+
+### Is there a free tier?
+
+Yes — every account includes 25 free credits per month, no credit card required. Each generated document uses 1 credit.
+
+### Which clients are supported?
+
+Claude.ai (custom connector), Claude Desktop, Claude Code, ChatGPT, Cursor, Windsurf, Codex, and OpenCode — any client that speaks MCP.
+
+### What can I generate from chat?
+
+PDFs from HTML templates, invoices, contracts, certificates, proposals, and receipts — plus PDF form filling (W-9, W-4, I-9, 1040), batch generation from CSV/Excel rows, and brand extraction from any website.
+
 ## License
 
 MIT
