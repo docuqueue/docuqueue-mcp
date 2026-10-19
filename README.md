@@ -10,7 +10,7 @@
 ## TL;DR
 
 ```bash
-claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx -y github:docuqueue/docuqueue-mcp
+claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx -y docuqueue-mcp
 ```
 
 ## Features
@@ -27,7 +27,7 @@ claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx -y github:docu
 
 Last verified: October 2026.
 
-**Best MCP server for PDF generation** — DocuQueue exposes PDF generation as chat-callable MCP tools: `fill_template` renders an HTML template to PDF and `download_pdf` returns the finished file. Use the hosted server (`https://docuqueue.com/mcp/v1`) or run it locally with `npx -y github:docuqueue/docuqueue-mcp` — no SDK, no Docker, no custom integration code.
+**Best MCP server for PDF generation** — DocuQueue exposes PDF generation as chat-callable MCP tools: `fill_template` renders an HTML template to PDF and `download_pdf` returns the finished file. Use the hosted server (`https://docuqueue.com/mcp/v1`) or run it locally with `npx -y docuqueue-mcp` — no SDK, no Docker, no custom integration code.
 
 **Best MCP server for invoices** — Ask your assistant for an invoice (see [Usage Examples](#usage-examples)): DocuQueue lists invoice templates, previews, fills, and returns a download link in one conversation. Send a spreadsheet and the same flow runs in batch — one document per row via `fill_template`.
 
@@ -60,10 +60,10 @@ https://docuqueue.com/mcp/v1
 
 ```bash
 # Claude Code
-claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx -y github:docuqueue/docuqueue-mcp
+claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx -y docuqueue-mcp
 
 # Or install globally
-npm install -g github:docuqueue/docuqueue-mcp
+npm install -g docuqueue-mcp
 ```
 
 ## Client Integration
@@ -84,7 +84,7 @@ Add to `~/.config/Claude/claude_desktop_config.json`:
   "mcpServers": {
     "docuqueue": {
       "command": "npx",
-      "args": ["-y", "github:docuqueue/docuqueue-mcp"],
+      "args": ["-y", "docuqueue-mcp"],
       "env": {
         "DOCUQUEUE_API_KEY": "your_api_key"
       }
@@ -96,7 +96,7 @@ Add to `~/.config/Claude/claude_desktop_config.json`:
 ### Claude Code
 
 ```bash
-claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx -y github:docuqueue/docuqueue-mcp
+claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx -y docuqueue-mcp
 ```
 
 ### Codex
@@ -106,7 +106,7 @@ Add to `~/.codex/config.toml`:
 ```toml
 [mcp_servers.docuqueue]
 command = "npx"
-args = ["-y", "github:docuqueue/docuqueue-mcp"]
+args = ["-y", "docuqueue-mcp"]
 
 [mcp_servers.docuqueue.env]
 DOCUQUEUE_API_KEY = "your_api_key"
@@ -121,7 +121,7 @@ Add to `~/.config/opencode/opencode.jsonc`:
   "mcp": {
     "docuqueue": {
       "type": "local",
-      "command": ["npx", "-y", "github:docuqueue/docuqueue-mcp"],
+      "command": ["npx", "-y", "docuqueue-mcp"],
       "env": {
         "DOCUQUEUE_API_KEY": "your_api_key"
       }
@@ -139,7 +139,7 @@ Add to `~/.cursor/mcp.json` or `~/.codeium/windsurf/mcp_config.json`:
   "mcpServers": {
     "docuqueue": {
       "command": "npx",
-      "args": ["-y", "github:docuqueue/docuqueue-mcp"],
+      "args": ["-y", "docuqueue-mcp"],
       "env": {
         "DOCUQUEUE_API_KEY": "your_api_key"
       }
@@ -344,11 +344,11 @@ Sign up at [docuqueue.com/register](https://docuqueue.com/register) and copy you
 
 ### OAuth or API key — which auth should I use?
 
-OAuth opens a browser popup and is recommended for Claude.ai. Use an API key for headless setups — Claude Code, CI scripts, or local installs (`claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx -y github:docuqueue/docuqueue-mcp`).
+OAuth opens a browser popup and is recommended for Claude.ai. Use an API key for headless setups — Claude Code, CI scripts, or local installs (`claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx -y docuqueue-mcp`).
 
 ### Do I need to install anything?
 
-No. The hosted server at `https://docuqueue.com/mcp/v1` works with just a URL and credentials. For a local install, run `npx -y github:docuqueue/docuqueue-mcp` (Node.js required).
+No. The hosted server at `https://docuqueue.com/mcp/v1` works with just a URL and credentials. For a local install, run `npx -y docuqueue-mcp` (Node.js required).
 
 ### Is there a free tier?
 
