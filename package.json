@@ -1,7 +1,7 @@
 {
   "name": "docuqueue-mcp",
-  "version": "0.1.3",
-  "description": "MCP server for creating professional PDF documents",
+  "version": "0.1.4",
+  "description": "MCP server for PDF generation: create invoices, contracts, certificates, forms, and batch documents from Claude, ChatGPT, and Cursor. MIT, hosted or local.",
   "main": "dist/index.js",
   "bin": {
     "docuqueue-mcp": "./dist/index.js",
@@ -24,11 +24,35 @@
   },
   "keywords": [
     "mcp",
+    "mcp-server",
+    "model-context-protocol",
     "pdf",
+    "pdf-generation",
+    "html-to-pdf",
+    "pdf-form-filling",
+    "form-filling",
+    "document-generation",
     "invoice",
-    "document",
+    "invoice-generator",
+    "contract",
+    "certificate",
+    "batch",
+    "templates",
+    "claude",
+    "chatgpt",
+    "cursor",
+    "ai",
+    "ai-agents",
     "docuqueue"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/docuqueue/docuqueue-mcp.git"
+  },
+  "homepage": "https://docuqueue.com/mcp",
+  "bugs": {
+    "url": "https://github.com/docuqueue/docuqueue-mcp/issues"
+  },
   "author": "",
   "license": "MIT",
   "dependencies": {
