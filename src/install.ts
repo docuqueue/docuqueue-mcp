@@ -64,16 +64,16 @@ function writeConfig(path: string, config: Record<string, unknown>): void {
   writeFileSync(path, JSON.stringify(config, null, 2));
 }
 
-function mergeServer(config: Record<string, unknown>, rootKey: string, urlField: string, apiKey: string): Record<string, unknown> {
+function mergeServer(config: Record<string, unknown>, rootKey: string, _urlField: string, apiKey: string): Record<string, unknown> {
   const servers = (config[rootKey] as Record<string, unknown>) || {};
-  
+
   servers['docuqueue'] = {
-    url: 'https://mcp.docuqueue.com/sse',
+    url: 'https://docuqueue.com/mcp/v1',
     headers: {
       'api-key': apiKey,
     },
   };
-  
+
   config[rootKey] = servers;
   return config;
 }

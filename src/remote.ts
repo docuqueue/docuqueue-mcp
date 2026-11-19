@@ -16,8 +16,8 @@ import { uploadDocxTemplate } from './tools/uploadDocxTemplate';
 
 function buildServer(): McpServer {
   const server = new McpServer({
-    name: 'document-generator',
-    version: '0.1.0',
+    name: 'docuqueue-mcp',
+    version: '0.1.6',
   });
 
   server.tool(
@@ -76,8 +76,8 @@ function buildServer(): McpServer {
       template_id: z.string().describe('Design ID to preview'),
       data: z.record(z.unknown()).describe('Sample data for preview'),
       accept: z
-        .enum(['text.html', 'application/pdf'])
-        .default('text.html')
+        .enum(['text/html', 'application/pdf'])
+        .default('text/html')
         .describe('Output format'),
     },
     async (args) => previewTemplate(args)

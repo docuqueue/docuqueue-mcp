@@ -1,7 +1,7 @@
 {
   "name": "docuqueue-mcp",
-  "version": "0.1.5",
-  "description": "MCP server for PDF generation: create invoices, contracts, certificates, forms, and batch documents from Claude, ChatGPT, and Cursor. MIT, hosted or local.",
+  "version": "0.1.6",
+  "description": "MCP server for PDF and document generation: create invoices, contracts, certificates, forms, and batch documents from Claude, ChatGPT, and Cursor. MIT, hosted or local.",
   "main": "dist/index.js",
   "bin": {
     "docuqueue-mcp": "./dist/index.js",

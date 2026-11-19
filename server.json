@@ -2,37 +2,54 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.dvcoolarun/docuqueue-mcp",
   "title": "DocuQueue MCP",
-  "description": "Generate PDFs and fill PDF forms via AI chat. Works with Claude, ChatGPT, Cursor, and MCP clients.",
-  "version": "0.1.3",
+  "description": "Generate and fill documents (PDFs, invoices, contracts, forms) via AI chat. Works with Claude, ChatGPT, Cursor, and any MCP client.",
+  "version": "0.1.6",
   "homepage": "https://docuqueue.com/mcp",
   "repository": {
     "url": "https://github.com/docuqueue/docuqueue-mcp",
     "source": "github"
   },
   "license": "MIT",
-  "keywords": ["pdf", "document", "invoice", "receipt", "contract", "template", "form-filling", "document-generation", "certificate", "report", "mcp-server", "receipt-generator", "ecommerce", "billing"],
+  "keywords": [
+    "pdf",
+    "document",
+    "invoice",
+    "receipt",
+    "contract",
+    "template",
+    "form-filling",
+    "document-generation",
+    "certificate",
+    "report",
+    "mcp-server",
+    "receipt-generator",
+    "ecommerce",
+    "billing"
+  ],
   "icons": [
     {
       "src": "https://docuqueue.com/favicon-32x32.png",
-      "sizes": ["32x32"]
+      "sizes": [
+        "32x32"
+      ]
     },
     {
       "src": "https://docuqueue.com/apple-touch-icon.png",
-      "sizes": ["180x180"]
+      "sizes": [
+        "180x180"
+      ]
     },
     {
       "src": "https://docuqueue.com/android-chrome-512x512.png",
-      "sizes": ["512x512"]
+      "sizes": [
+        "512x512"
+      ]
     }
   ],
   "remotes": [
     {
       "type": "streamable-http",
       "url": "https://docuqueue.com/mcp/v1"
-    },
-    {
-      "type": "sse",
-      "url": "https://docuqueue.com/mcp/sse"
     }
   ]
 }

@@ -1,12 +1,14 @@
 {
   "name": "docuqueue",
-  "version": "1.0.0",
-  "description": "Generate PDFs, fill forms, and manage documents using DocuQueue API",
+  "version": "0.1.6",
+  "description": "Generate PDFs, fill forms, and manage documents using the DocuQueue API",
   "author": "docuqueue",
-  "skills": ["skills/docuqueue"],
+  "skills": [
+    "skills/docuqueue"
+  ],
   "mcp": {
     "docuqueue": {
-      "url": "https://docuqueue.com/mcp/sse"
+      "url": "https://docuqueue.com/mcp/v1"
     }
   }
 }

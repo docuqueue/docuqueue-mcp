@@ -15,8 +15,8 @@ import { uploadDocxTemplate, uploadDocxTemplateSchema } from './tools/uploadDocx
 
 // Create MCP server
 const server = new McpServer({
-  name: 'document-generator',
-  version: '0.1.0',
+  name: 'docuqueue-mcp',
+  version: '0.1.6',
 });
 
 // Register tools
