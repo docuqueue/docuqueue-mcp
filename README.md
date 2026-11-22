@@ -71,6 +71,54 @@ The AI will list templates, preview the invoice, generate the PDF, and return a 
 
 > Upload this Word document as a template: /path/to/contract.docx
 
+## Automation & Workflow Recipes
+
+DocuQueue sits at the API/MCP layer of a document workflow: **trigger → template + data → async render → delivery**. One account covers the whole pipeline — no queue, renderer or storage to operate yourself.
+
+```
+ TRIGGER                 REQUEST                  RENDER               DELIVERY
+ ─────────────────────   ──────────────────────   ──────────────────   ─────────────────
+ App event (webhook)  ┐
+ Cron / scheduler     ┼─▶  POST /fill or         ─▶  Chromium        ─▶  Webhook ping
+ AI chat (MCP)        ┤    /convert  (JSON/CSV)      render (async)      Download link
+ n8n / Zapier         ┘    → job_id                status: GET /status  or S3 / ZIP
+```
+
+### Recipe 1 — Event-driven documents (webhook)
+
+| Step | Call | Result |
+|------|------|--------|
+| 1. Trigger | Your app: order paid, form submitted, record created | — |
+| 2. Generate | `POST /api/v1/templates/{id}/fill` with JSON | `job_id` |
+| 3. Await | `GET /api/v1/status/{job_id}` or your webhook URL | `completed` |
+| 4. Deliver | `GET /api/v1/download/{job_id}` | finished PDF |
+
+### Recipe 2 — Bulk from a spreadsheet (CSV → thousands of PDFs)
+
+```
+people.csv / .xlsx          POST /templates/{id}/fill-batch         ZIP
+┌──────────────┐           ┌─────────────────────────────┐        ┌──────────┐
+│ name, amount │  ───────▶ │ 50 docs/request, parallel   │ ─────▶ │ archive  │
+│ ... 10k rows │           │ poll status or webhook      │        │ download │
+└──────────────┘           └─────────────────────────────┘        └──────────┘
+```
+
+### Recipe 3 — Agent-driven from chat (MCP)
+
+```
+You: "Invoice Acme, 3 widgets @ $50, 10% tax"
+   └▶ Claude/ChatGPT ─▶ list_templates ─▶ fill_template ─▶ download_pdf ─▶ link
+```
+
+### Where DocuQueue fits in your stack
+
+| Layer | Owner | Example |
+|-------|-------|---------|
+| Trigger | Your app / n8n / Zapier / cron | order.paid event |
+| **Document API** | **DocuQueue** | **template + JSON/CSV → PDF** |
+| Render | DocuQueue (Chromium) | HTML/CSS, DOCX, PDF forms |
+| Delivery | DocuQueue → you | webhook, download link, ZIP |
+
 ## Common Forms
 
 Fill and generate these popular forms directly from AI chat:
