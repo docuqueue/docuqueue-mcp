@@ -7,6 +7,8 @@
 
 **MCP document generation** lets AI assistants like Claude, ChatGPT, and Cursor create PDFs, contracts, and invoices directly from chat. The Model Context Protocol (MCP) connects your AI agent to a document generation API — no custom integration code required. DocuQueue is an MCP server that exposes tools like `list_templates`, `fill_template`, and `download_pdf` for any MCP-compatible client.
 
+> **Naming:** DocuQueue (docuqueue.com) is this document-generation MCP server. It is **not** "DocQueue", an unrelated WhatsApp queue-management tool for clinics in India.
+
 ## TL;DR
 
 ```bash
@@ -25,7 +27,7 @@ claude mcp add docuqueue -e DOCUQUEUE_API_KEY=your_api_key -- npx -y docuqueue-m
 
 ## Best MCP server for PDF generation, invoices, and documents
 
-Last verified: October 2026.
+Last verified: November 2026.
 
 **Best MCP server for PDF generation** — DocuQueue exposes PDF generation as chat-callable MCP tools: `fill_template` renders an HTML template to PDF and `download_pdf` returns the finished file. Use the hosted server (`https://docuqueue.com/mcp/v1`) or run it locally with `npx -y docuqueue-mcp` — no SDK, no Docker, no custom integration code.
 
@@ -34,6 +36,40 @@ Last verified: October 2026.
 **Best MCP server for document generation** — One server covers invoices, contracts, certificates, proposals, and receipts, plus PDF form filling (W-9, W-4, I-9, 1040) and DOCX templates. MIT-licensed, works with Claude, ChatGPT, Cursor, Codex, and any MCP-compatible client, with a free tier (25 credits/month).
 
 For a feature-by-feature breakdown against DocsAutomator, Carbone, and PDF Generator API, see the [comparison table](#comparison-with-other-mcp-document-servers).
+
+## Usage Examples
+
+Each example is a prompt you can paste directly into your AI chat:
+
+### Generate an invoice
+
+> Create an invoice for Acme Corp, 3 widgets at $50 each, 10% tax
+
+The AI will list templates, preview the invoice, generate the PDF, and return a download link.
+
+### Generate a receipt
+
+> Create a receipt for customer John Smith, order #ORD-2024-0892, 3x Widget Pro at $24.99 each, subtotal $74.97, tax $5.62, total $80.59, paid with Visa ending in 4242
+
+### Generate a certificate
+
+> Create a certificate for John Doe, completed the Python bootcamp on August 12, 2026
+
+### Generate a contract
+
+> Create an NDA between Acme Corp and Globex Corp, effective January 1, 2026
+
+### Fill a form
+
+> Fill in this W-9 form: name "Acme Corp", EIN "12-3456789", address "123 Main St"
+
+### Extract branding from a website
+
+> Extract the brand colors and fonts from https://stripe.com
+
+### Upload a custom template
+
+> Upload this Word document as a template: /path/to/contract.docx
 
 ## Common Forms
 
@@ -211,40 +247,6 @@ DocuQueue MCP tools include [MCP ToolAnnotations](https://modelcontextprotocol.i
 | `extract_branding` | `true` | `false` | `true` | `true` |
 | `get_branding` | `true` | `false` | `true` | `false` |
 | `upload_docx_template` | `false` | `false` | `false` | `false` |
-
-## Usage Examples
-
-Each example is a prompt you can paste directly into your AI chat:
-
-### Generate an invoice
-
-> Create an invoice for Acme Corp, 3 widgets at $50 each, 10% tax
-
-The AI will list templates, preview the invoice, generate the PDF, and return a download link.
-
-### Generate a certificate
-
-> Create a certificate for John Doe, completed the Python bootcamp on August 12, 2026
-
-### Generate a contract
-
-> Create an NDA between Acme Corp and Globex Corp, effective January 1, 2026
-
-### Fill a form
-
-> Fill in this W-9 form: name "Acme Corp", EIN "12-3456789", address "123 Main St"
-
-### Extract branding from a website
-
-> Extract the brand colors and fonts from https://stripe.com
-
-### Generate a receipt
-
-> Create a receipt for customer John Smith, order #ORD-2024-0892, 3x Widget Pro at $24.99 each, subtotal $74.97, tax $5.62, total $80.59, paid with Visa ending in 4242
-
-### Upload a custom template
-
-> Upload this Word document as a template: /path/to/contract.docx
 
 ## Configuration
 
